@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Savanna House — Luxury Guest House, Kenya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://ik.imagekit.io" crossorigin>
+<link rel="dns-prefetch" href="https://ik.imagekit.io">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Preload hero image for instant LCP -->
+<link rel="preload" as="image" href="https://ik.imagekit.io/lrj2sofys/judith-girard-marczak-yWpjYIjCwis-unsplash%20(1).jpg?tr=w-1200,q-80,f-webp" fetchpriority="high">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sand: #f5f0e8;
+    --ivory: #faf8f4;
+    --ocean: #2a7a8c;
+    --ocean-dark: #1d5e6e;
+    --ocean-light: #4ab3c8;
+    --gold: #b8955a;
+    --gold-light: #d4b07a;
+    --earth: #8b6e52;
+    --charcoal: #2c2c2c;
+    --text-muted: #7a7a7a;
+    --white: #ffffff;
+    --shadow: 0 8px 40px rgba(0,0,0,0.12);
+    --shadow-deep: 0 20px 60px rgba(0,0,0,0.2);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--ivory);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    transition: all 0.4s ease;
+  }
+  nav.scrolled {
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    padding: 0.8rem 4rem;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400; letter-spacing: 0.08em;
+    color: var(--white); text-decoration: none;
+    transition: color 0.3s;
+  }
+  nav.scrolled .nav-logo { color: var(--charcoal); }
+  .nav-logo span { color: var(--gold-light); }
+  nav.scrolled .nav-logo span { color: var(--gold); }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-weight: 500; transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+    height: 1px; background: var(--gold-light);
+    transform: scaleX(0); transition: transform 0.3s;
+  }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-links a:hover { color: var(--white); }
+  nav.scrolled .nav-links a { color: var(--text-muted); }
+  nav.scrolled .nav-links a:hover { color: var(--charcoal); }
+
+  .nav-book-btn {
+    background: var(--gold); color: var(--white); border: none;
+    padding: 0.65rem 1.6rem; font-family: 'Jost', sans-serif;
+    font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-weight: 500; cursor: pointer; transition: all 0.3s;
+    text-decoration: none;
+  }
+  .nav-book-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { display: block; width: 24px; height: 1.5px; background: white; transition: all 0.3s; }
+  nav.scrolled .hamburger span { background: var(--charcoal); }
+
+  /* ─── HERO ─── */
+  #hero {
+    height: 100vh; min-height: 700px; position: relative;
+    display: flex; align-items: flex-end; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://ik.imagekit.io/lrj2sofys/judith-girard-marczak-yWpjYIjCwis-unsplash%20(1).jpg?tr=w-1400,q-80,f-webp');
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+  }
+  .hero-bg::before {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(10, 35, 40, 0.35);
+  }
+  .hero-bg::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 55%;
+    background: linear-gradient(to top, rgba(10,30,36,0.80) 0%, transparent 100%);
+  }
+  /* Acacia tree silhouette */
+  .acacia {
+    position: absolute; right: 8%; bottom: 30%; width: 180px; height: 180px;
+    opacity: 0.35;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative; z-index: 2; text-align: center;
+    padding: 0 2rem 8rem; max-width: 800px;
+    animation: fadeUp 1.2s ease both;
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold-light); font-weight: 500; margin-bottom: 1.2rem;
+    display: block;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 300; line-height: 1.05;
+    color: var(--white); margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+  .hero-title em { font-style: italic; color: var(--gold-light); }
+  .hero-sub {
+    font-size: 0.95rem; color: rgba(255,255,255,0.75);
+    line-height: 1.8; max-width: 480px; margin: 0 auto 2.5rem;
+    font-weight: 300;
+  }
+  .hero-cta {
+    display: inline-block; background: var(--gold);
+    color: var(--white); text-decoration: none;
+    padding: 1rem 2.8rem; font-size: 0.75rem;
+    letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600;
+    transition: all 0.35s; position: relative; overflow: hidden;
+  }
+  .hero-cta::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--gold-light); transform: translateX(-100%);
+    transition: transform 0.35s ease;
+  }
+  .hero-cta:hover::before { transform: translateX(0); }
+  .hero-cta span { position: relative; z-index: 1; }
+
+  /* Floating scroll indicator */
+  .scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    color: rgba(255,255,255,0.5); font-size: 0.65rem; letter-spacing: 0.2em;
+    text-transform: uppercase; animation: bounce 2s infinite;
+  }
+  .scroll-hint::before {
+    content: ''; display: block; width: 1px; height: 40px;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4));
+  }
+
+  /* ─── BOOKING FORM ─── */
+  .booking-bar {
+    max-width: 860px; margin: -3.5rem auto 0;
+    background: var(--white); box-shadow: var(--shadow-deep);
+    display: grid; grid-template-columns: 1fr 1fr 1fr 1fr auto;
+    overflow: hidden;
+  }
+  .booking-field {
+    padding: 1.4rem 1.6rem; border-right: 1px solid rgba(0,0,0,0.06);
+    display: flex; flex-direction: column; gap: 0.3rem;
+  }
+  .booking-field label {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ocean); font-weight: 600;
+  }
+  .booking-field input, .booking-field select {
+    border: none; outline: none; font-family: 'Jost', sans-serif;
+    font-size: 0.9rem; color: var(--charcoal); background: transparent;
+    cursor: pointer; width: 100%;
+  }
+  .booking-field select { appearance: none; }
+  .booking-search {
+    background: var(--ocean); color: var(--white); border: none;
+    padding: 0 2rem; font-family: 'Jost', sans-serif;
+    font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 600; cursor: pointer; transition: background 0.3s; white-space: nowrap;
+  }
+  .booking-search:hover { background: var(--ocean-dark); }
+
+  /* ─── SECTIONS COMMON ─── */
+  section { padding: 6rem 4rem; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 0.8rem; display: block;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem); font-weight: 400;
+    line-height: 1.15; color: var(--charcoal);
+  }
+  .divider {
+    width: 48px; height: 2px; background: var(--gold);
+    margin: 1.5rem 0;
+  }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--ivory); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .about-images {
+    position: relative; height: 520px;
+  }
+  .about-img {
+    position: absolute; border: none;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    border-radius: 0;
+  }
+  .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; animation: none; background: none; }
+  .about-img-1 { width: 68%; height: 68%; top: 0; left: 0; }
+  .about-img-2 { width: 52%; height: 48%; bottom: 0; right: 0; }
+  .about-img-3 {
+    width: 40%; height: 32%; bottom: 30%; left: 60%;
+    border: 3px solid var(--white);
+    box-shadow: var(--shadow-deep);
+    z-index: 2;
+  }
+  /* Placeholder gradient images */
+  .about-img-1 .img-placeholder {
+    background: linear-gradient(135deg, #2a7a8c 0%, #1d5e6e 40%, #4ab3c8 100%);
+  }
+  .about-img-2 .img-placeholder {
+    background: linear-gradient(135deg, #b8955a 0%, #8b6e52 50%, #d4b07a 100%);
+  }
+  .about-img-3 .img-placeholder {
+    background: linear-gradient(135deg, #1a6070 0%, #4ab3c8 100%);
+  }
+  .img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; opacity: 0.6;
+  }
+  .about-accent {
+    position: absolute; top: 40%; left: 55%;
+    width: 80px; height: 80px; background: var(--gold); opacity: 0.12;
+    border-radius: 50%;
+  }
+
+  .about-text p { color: var(--text-muted); line-height: 1.9; font-weight: 300; margin-bottom: 1.2rem; }
+  .btn-outline {
+    display: inline-block; border: 1.5px solid var(--gold);
+    color: var(--gold); padding: 0.85rem 2.2rem; text-decoration: none;
+    font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 600; transition: all 0.3s; margin-top: 1rem;
+  }
+  .btn-outline:hover { background: var(--gold); color: var(--white); }
+
+  .about-stats {
+    display: flex; gap: 2.5rem; margin-top: 2.5rem; padding-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 300; color: var(--ocean); line-height: 1;
+  }
+  .stat-label { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.1em; margin-top: 0.2rem; }
+
+  /* ─── AMENITIES ─── */
+  #amenities {
+    padding: 0; position: relative; overflow: hidden;
+  }
+  .amenities-bg {
+    min-height: 600px; position: relative;
+    background: linear-gradient(160deg, #0d3b44, #1a6070 40%, #2a7a8c);
+    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+  }
+  .amenities-visual {
+    height: 100%; min-height: 600px;
+    position: relative; overflow: hidden;
+  }
+  .amenities-visual img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .amenities-visual::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to right, transparent 50%, rgba(13,59,68,0.6) 100%);
+  }
+  .pool-graphic {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 45%;
+    background: linear-gradient(to top, rgba(42,143,168,0.6), transparent);
+  }
+  .amenities-card {
+    padding: 4rem 4rem 4rem 3rem; color: var(--white);
+  }
+  .amenities-card .section-eyebrow { color: var(--gold-light); }
+  .amenities-card .section-title { color: var(--white); }
+  .amenities-card .divider { background: var(--gold-light); }
+  .amenities-card > p { color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 2.5rem; font-weight: 300; }
+  .amenities-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  }
+  .amenity-item {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.85rem; color: rgba(255,255,255,0.85); font-weight: 300;
+  }
+  .amenity-item:last-child, .amenity-item:nth-last-child(2) { border-bottom: none; }
+  .amenity-icon { font-size: 1.1rem; width: 28px; text-align: center; color: var(--gold-light); }
+
+  /* ─── ROOMS ─── */
+  #rooms { background: var(--sand); }
+  .rooms-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1rem;
+  }
+  .rooms-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
+  }
+  .room-card {
+    background: var(--white); overflow: hidden; position: relative;
+    transition: transform 0.4s ease; cursor: pointer;
+  }
+  .room-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-deep); z-index: 2; }
+  .room-img {
+    height: 240px; overflow: hidden; position: relative;
+  }
+  .room-img .img-placeholder { height: 100%; font-size: 4rem; }
+  .room-img-1 .img-placeholder { background: linear-gradient(135deg, #c9b99a 0%, #b8955a 60%, #d4c5a5 100%); }
+  .room-img-2 .img-placeholder { background: linear-gradient(135deg, #2a7a8c 0%, #1d5e6e 60%, #4ab3c8 100%); }
+  .room-img-3 .img-placeholder { background: linear-gradient(135deg, #8b6e52 0%, #6b4f3a 60%, #b8955a 100%); }
+  .room-img::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 60%);
+    transition: opacity 0.3s;
+  }
+  .room-badge {
+    position: absolute; top: 1.2rem; left: 1.2rem; z-index: 2;
+    background: var(--gold); color: white;
+    font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.3rem 0.8rem; font-weight: 600;
+  }
+  .room-body { padding: 1.8rem; }
+  .room-name {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;
+    font-weight: 400; margin-bottom: 0.6rem; color: var(--charcoal);
+  }
+  .room-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem; font-weight: 300; }
+  .room-footer { display: flex; align-items: center; justify-content: space-between; }
+  .room-price .amount {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: var(--ocean);
+  }
+  .room-price .per { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.05em; }
+  .room-btn {
+    background: transparent; border: 1.5px solid var(--ocean); color: var(--ocean);
+    padding: 0.6rem 1.4rem; font-family: 'Jost', sans-serif;
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    font-weight: 600; cursor: pointer; transition: all 0.3s;
+  }
+  .room-btn:hover { background: var(--ocean); color: white; }
+  .room-features {
+    display: flex; gap: 1.2rem; margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem; border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .room-feat { font-size: 0.72rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.3rem; }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials { background: var(--ivory); overflow: hidden; }
+  .testimonials-inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: center; }
+  .testimonials-left .section-title { margin-bottom: 0; }
+  .testimonials-left p { color: var(--text-muted); margin-top: 1.5rem; font-weight: 300; line-height: 1.8; }
+  .testimonials-cards { display: flex; flex-direction: column; gap: 1.5rem; }
+  .testi-card {
+    background: var(--white); padding: 2rem;
+    border-left: 3px solid var(--gold);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+  }
+  .testi-card:hover { transform: translateX(6px); }
+  .testi-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.8rem; letter-spacing: 0.05em; }
+  .testi-text { font-size: 0.88rem; color: var(--charcoal); line-height: 1.8; margin-bottom: 1.2rem; font-weight: 300; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 1rem; }
+  .testi-avatar {
+    width: 42px; height: 42px; border-radius: 50%; overflow: hidden;
+    background: linear-gradient(135deg, var(--ocean), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 0.9rem; font-weight: 600;
+    font-family: 'Cormorant Garamond', serif;
+    flex-shrink: 0;
+  }
+  .testi-name { font-weight: 600; font-size: 0.85rem; color: var(--charcoal); }
+  .testi-loc { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.05em; }
+
+  /* ─── DINING ─── */
+  #dining { background: var(--charcoal); padding: 0; }
+  .dining-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .dining-visual {
+    background: linear-gradient(135deg, #3d2b1a, #6b4f3a 50%, #8b6e52);
+    min-height: 550px; display: flex; align-items: center; justify-content: center;
+    font-size: 6rem; position: relative; overflow: hidden;
+  }
+  .dining-visual::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(184,149,90,0.2) 0%, transparent 70%);
+  }
+  .candle-effect {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(212,176,122,0.15) 0%, transparent 70%);
+    border-radius: 50%; animation: flicker 3s ease-in-out infinite;
+  }
+  .dining-content { padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+  .dining-content .section-eyebrow { color: var(--gold-light); }
+  .dining-content .section-title { color: var(--white); }
+  .dining-content .divider { background: var(--gold); }
+  .dining-content > p { color: rgba(255,255,255,0.6); line-height: 1.9; margin-bottom: 2.5rem; font-weight: 300; }
+  .menu-accordion { display: flex; flex-direction: column; gap: 0; }
+  .menu-item {
+    border-bottom: 1px solid rgba(255,255,255,0.08); overflow: hidden;
+  }
+  .menu-toggle {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 0; cursor: pointer; color: rgba(255,255,255,0.85);
+    font-size: 0.85rem; letter-spacing: 0.08em; font-weight: 400;
+    user-select: none; transition: color 0.3s;
+  }
+  .menu-toggle:hover { color: var(--gold-light); }
+  .menu-toggle.active { color: var(--gold-light); }
+  .menu-arrow { font-size: 0.7rem; transition: transform 0.3s; }
+  .menu-toggle.active .menu-arrow { transform: rotate(180deg); }
+  .menu-body {
+    max-height: 0; overflow: hidden; transition: max-height 0.35s ease;
+  }
+  .menu-body.open { max-height: 200px; }
+  .menu-body p { color: rgba(255,255,255,0.5); font-size: 0.82rem; line-height: 1.8; padding-bottom: 1rem; font-weight: 300; }
+
+  /* ─── GALLERY ─── */
+  #gallery { background: var(--sand); padding: 6rem 4rem; }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 200px 200px;
+    gap: 6px; margin-top: 3rem;
+  }
+  .gallery-item {
+    overflow: hidden; cursor: pointer; position: relative;
+  }
+  .gallery-item:first-child { grid-column: span 2; grid-row: span 2; }
+  .gallery-item .img-placeholder { height: 100%; font-size: 3rem; }
+  .g1 .img-placeholder { background: linear-gradient(135deg, #1a5f6e, #2a8fa8 50%, #4ab3c8); }
+  .g2 .img-placeholder { background: linear-gradient(135deg, #b8955a, #d4b07a); }
+  .g3 .img-placeholder { background: linear-gradient(135deg, #8b6e52, #c9b99a); }
+  .g4 .img-placeholder { background: linear-gradient(135deg, #2a7a8c, #0d3b44); }
+  .g5 .img-placeholder { background: linear-gradient(135deg, #d4b07a, #b8955a 60%, #8b6e52); }
+  .gallery-item::after {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(0,0,0,0); transition: background 0.3s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .gallery-item:hover::after { background: rgba(42,122,140,0.3); }
+  .gallery-overlay {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.3s; z-index: 2;
+    color: white; font-size: 1.5rem;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+  /* ─── LOCATION / CONTACT ─── */
+  #contact { background: var(--ivory); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+  .contact-info { }
+  .contact-detail {
+    display: flex; align-items: flex-start; gap: 1.2rem;
+    padding: 1.4rem 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .contact-icon {
+    width: 44px; height: 44px; background: var(--ocean);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1rem; flex-shrink: 0;
+  }
+  .contact-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 0.3rem; }
+  .contact-value { font-size: 0.9rem; color: var(--charcoal); font-weight: 400; }
+  .contact-value a { color: inherit; text-decoration: none; }
+  .contact-value a:hover { color: var(--ocean); }
+
+  .map-embed {
+    background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 30%, #81c784 60%, #66bb6a 100%);
+    height: 380px; position: relative; overflow: hidden;
+    border: 4px solid white; box-shadow: var(--shadow);
+    display: flex; align-items: center; justify-content: center;
+    color: #2e7d32; font-size: 4rem;
+  }
+  .map-embed::before {
+    content: ''; position: absolute; inset: 0;
+    background: 
+      radial-gradient(circle at 30% 40%, rgba(255,255,255,0.4) 0%, transparent 30%),
+      radial-gradient(circle at 70% 60%, rgba(102,187,106,0.3) 0%, transparent 40%);
+  }
+  .map-pin {
+    position: absolute; top: 42%; left: 48%;
+    transform: translate(-50%,-100%);
+    display: flex; flex-direction: column; align-items: center;
+    animation: mapPinDrop 0.6s ease 0.5s both;
+  }
+  .map-pin-head {
+    width: 24px; height: 24px; background: var(--ocean); border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg); box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  }
+  .map-pin-head::after {
+    content: ''; position: absolute; top: 4px; left: 4px;
+    width: 12px; height: 12px; background: white; border-radius: 50%;
+  }
+  .map-pin-line { width: 2px; height: 20px; background: rgba(0,0,0,0.3); }
+  .map-label {
+    position: absolute; top: 28%; left: 35%; background: white;
+    padding: 0.5rem 1rem; font-size: 0.75rem; font-weight: 600;
+    color: var(--charcoal); box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    white-space: nowrap; letter-spacing: 0.05em;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--charcoal); color: rgba(255,255,255,0.6);
+    padding: 4rem 4rem 2rem;
+  }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand .nav-logo { color: var(--white); font-size: 1.4rem; display: block; margin-bottom: 1rem; }
+  .footer-brand p { font-size: 0.82rem; line-height: 1.8; font-weight: 300; }
+  .footer-social { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
+  .social-btn {
+    width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.5); font-size: 0.85rem; text-decoration: none;
+    transition: all 0.3s;
+  }
+  .social-btn:hover { background: var(--gold); border-color: var(--gold); color: white; }
+  .footer-col h4 {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.9); font-weight: 600; margin-bottom: 1.2rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  .footer-col ul a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.82rem; font-weight: 300; transition: color 0.3s; }
+  .footer-col ul a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.07); padding-top: 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.75rem; color: rgba(255,255,255,0.3);
+  }
+
+  /* ─── IMAGE SHIMMER / SKELETON + LAYOUT ─── */
+  img {
+    max-width: 100%; height: auto; display: block;
+    background: linear-gradient(90deg, #e8e2d8 25%, #f0ebe2 50%, #e8e2d8 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s ease infinite;
+    transition: opacity 0.4s ease;
+  }
+  img.loaded { animation: none; background: none; }
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Prevent layout shift while images load */
+  .room-img { background: #e8e4dc; }
+  .about-img { background: #e8e4dc; }
+  .gallery-item { background: #e8e4dc; }
+  .dining-visual { background: #2d1f12; }
+  .amenities-visual { background: #0d3b44; }
+
+  /* Room, gallery, dining images — let wrapper hold the skeleton colour, not the img tag itself */
+  .room-img img, .gallery-item img, .dining-visual img, .amenities-visual img {
+    animation: none;
+    background: none;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+  @keyframes flicker {
+    0%, 100% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+    50% { opacity: 0.7; transform: translate(-50%,-50%) scale(1.05); }
+  }
+  @keyframes mapPinDrop {
+    from { transform: translate(-50%,-200%); opacity: 0; }
+    to { transform: translate(-50%,-100%); opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── MOBILE NAV ─── */
+  .mobile-menu {
+    position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px;
+    height: 100vh; background: var(--charcoal); z-index: 2000;
+    display: flex; flex-direction: column; padding: 5rem 2rem 2rem;
+    transition: right 0.4s ease;
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1999;
+    opacity: 0; pointer-events: none; transition: opacity 0.4s;
+  }
+  .mobile-overlay.open { opacity: 1; pointer-events: all; }
+  .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
+  .mobile-menu ul a {
+    color: rgba(255,255,255,0.8); text-decoration: none;
+    font-size: 1.1rem; font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.05em; transition: color 0.3s;
+  }
+  .mobile-menu ul a:hover { color: var(--gold-light); }
+  .mobile-close {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    background: none; border: none; color: white; font-size: 1.3rem; cursor: pointer;
+  }
+  .mobile-book {
+    margin-top: auto; background: var(--gold); color: white; border: none;
+    padding: 1rem; font-family: 'Jost', sans-serif; font-size: 0.8rem;
+    letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; font-weight: 600;
+  }
+
+  /* ─── RESPONSIVE ─── */
+
+  /* ── Tablet (≤1024px) ── */
+  @media (max-width: 1024px) {
+    nav { padding: 1.2rem 2rem; }
+    nav.scrolled { padding: 0.8rem 2rem; }
+    .nav-links { display: none; }
+    .nav-book-btn { display: none; }
+    .hamburger { display: flex; }
+
+    section { padding: 5rem 2rem; }
+    #gallery { padding: 5rem 2rem; }
+
+    /* Booking bar */
+    .booking-bar {
+      grid-template-columns: 1fr 1fr;
+      margin: -2.5rem auto 0;
+    }
+    .booking-search { grid-column: span 2; padding: 1.2rem; }
+
+    /* About */
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-images { height: 380px; }
+
+    /* Amenities */
+    .amenities-bg { grid-template-columns: 1fr; }
+    .amenities-visual { display: none; }
+    .amenities-card { padding: 4rem 2rem; }
+
+    /* Rooms */
+    .rooms-grid { grid-template-columns: 1fr 1fr; }
+    .rooms-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+
+    /* Dining */
+    .dining-grid { grid-template-columns: 1fr; }
+    .dining-visual { min-height: 300px; }
+    .dining-content { padding: 3rem 2rem; }
+
+    /* Gallery */
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 200px);
+    }
+    .gallery-item:first-child { grid-column: span 2; }
+
+    /* Testimonials */
+    .testimonials-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+
+    /* Contact */
+    .contact-grid { grid-template-columns: 1fr; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  }
+
+  /* ── Mobile (≤768px) ── */
+  @media (max-width: 768px) {
+    /* Nav */
+    nav { padding: 1rem 1.2rem; }
+    nav.scrolled { padding: 0.8rem 1.2rem; }
+    .nav-logo { font-size: 1.3rem; }
+
+    /* Hero */
+    #hero { min-height: 100svh; }
+    .hero-content { padding: 0 1.2rem 6rem; }
+    .hero-title { font-size: clamp(2.2rem, 9vw, 3rem); }
+    .hero-sub { font-size: 0.88rem; }
+    .acacia { width: 120px; height: 120px; right: 2%; bottom: 25%; }
+
+    /* Booking bar */
+    .booking-bar {
+      grid-template-columns: 1fr 1fr;
+      margin: -2rem auto 0;
+    }
+    .booking-field { padding: 1rem 1rem; }
+    .booking-search { grid-column: span 2; padding: 1rem; }
+
+    /* About */
+    .about-images { height: 320px; }
+    .about-stats { gap: 1.5rem; }
+    .stat-num { font-size: 1.8rem; }
+
+    /* Amenities grid — single column on small screens */
+    .amenities-grid { grid-template-columns: 1fr; }
+    .amenity-item:nth-last-child(2) { border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+    /* Rooms */
+    .rooms-grid { grid-template-columns: 1fr; }
+    .room-img { height: 220px; }
+
+    /* Gallery */
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(3, 160px);
+    }
+
+    /* Testimonials */
+    .testi-card { padding: 1.5rem; }
+
+    /* Dining */
+    .dining-visual { min-height: 260px; }
+    .dining-content { padding: 2.5rem 1.5rem; }
+
+    /* Contact */
+    .map-embed { height: 280px; }
+
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    footer { padding: 3rem 1.5rem 1.5rem; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+    /* Sections */
+    section { padding: 4rem 1.2rem; }
+    #gallery { padding: 4rem 1.2rem; }
+  }
+
+  /* ── Small Mobile (≤480px) ── */
+  @media (max-width: 480px) {
+    /* Hero */
+    .hero-title { font-size: 2rem; line-height: 1.1; }
+    .hero-sub { font-size: 0.82rem; }
+    .hero-cta { padding: 0.85rem 2rem; font-size: 0.7rem; }
+
+    /* Booking — single column */
+    .booking-bar {
+      grid-template-columns: 1fr;
+      margin: -1.5rem auto 0;
+    }
+    .booking-field { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .booking-search { grid-column: span 1; }
+
+    /* About */
+    .about-images { height: 280px; }
+    .about-img-3 { display: none; } /* too cramped on very small screens */
+    .about-stats { flex-direction: column; gap: 1rem; }
+
+    /* Amenities */
+    .amenities-card { padding: 3rem 1.2rem; }
+
+    /* Gallery */
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+    .gallery-item { height: 200px; }
+    .gallery-item:first-child { grid-column: span 1; grid-row: span 1; }
+
+    /* Rooms */
+    .room-body { padding: 1.2rem; }
+    .room-features { flex-wrap: wrap; gap: 0.6rem; }
+    .room-footer { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .room-btn { width: 100%; text-align: center; }
+
+    /* Contact */
+    .contact-detail { gap: 0.8rem; }
+    .contact-icon { width: 38px; height: 38px; font-size: 0.85rem; }
+
+    /* Section padding */
+    section { padding: 3.5rem 1rem; }
+    #gallery { padding: 3.5rem 1rem; }
+    .footer-grid { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Mobile Menu -->
+<div class="mobile-overlay" id="mobileOverlay" onclick="closeMobileMenu()"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+  <ul>
+    <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+    <li><a href="#rooms" onclick="closeMobileMenu()">Rooms</a></li>
+    <li><a href="#amenities" onclick="closeMobileMenu()">Amenities</a></li>
+    <li><a href="#gallery" onclick="closeMobileMenu()">Gallery</a></li>
+    <li><a href="#dining" onclick="closeMobileMenu()">Dining</a></li>
+    <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+  </ul>
+  <button class="mobile-book" onclick="scrollToBooking(); closeMobileMenu();">Book Your Stay</button>
+</div>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Savanna<span>House</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#rooms">Rooms</a></li>
+    <li><a href="#amenities">Amenities</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#dining">Dining</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#booking" class="nav-book-btn">Book Now</a>
+  <div class="hamburger" onclick="openMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg">
+    <!-- SVG Acacia silhouette -->
+    <svg class="acacia" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M100 180 L100 90" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      <path d="M100 90 L60 50 Q100 70 140 50 Q110 75 100 90" fill="white"/>
+      <path d="M100 110 L50 80 Q100 95 150 75 Q115 100 100 110" fill="white"/>
+      <path d="M100 130 L65 110 Q100 120 135 105 Q115 120 100 130" fill="white"/>
+    </svg>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">✦ Nairobi, Kenya ✦</span>
+    <h1 class="hero-title">Hello. Karibu.<br><em>Welcome.</em></h1>
+    <p class="hero-sub">Experience authentic Kenyan warmth in a setting where comfort meets culture — your peaceful retreat in the heart of East Africa.</p>
+    <a href="#booking" class="hero-cta"><span>Book Your Stay</span></a>
+  </div>
+  <div class="scroll-hint">Discover</div>
+</section>
+
+<!-- ── BOOKING FORM ── -->
+<div style="position:relative; z-index:10; padding: 0 1rem;">
+<div class="booking-bar" id="booking">
+  <div class="booking-field">
+    <label>Check-in</label>
+    <input type="date" />
+  </div>
+  <div class="booking-field">
+    <label>Check-out</label>
+    <input type="date" />
+  </div>
+  <div class="booking-field">
+    <label>Adults</label>
+    <select>
+      <option>1 Adult</option>
+      <option>2 Adults</option>
+      <option>3 Adults</option>
+      <option>4 Adults</option>
+    </select>
+  </div>
+  <div class="booking-field" style="border-right:none;">
+    <label>Children</label>
+    <select>
+      <option>0 Children</option>
+      <option>1 Child</option>
+      <option>2 Children</option>
+      <option>3 Children</option>
+    </select>
+  </div>
+  <button class="booking-search">Search →</button>
+</div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-images reveal">
+        <div class="about-img about-img-1">
+          <img src="https://ik.imagekit.io/lrj2sofys/frugal-flyer-dtMCB12HAi8-unsplash.jpg?tr=w-900,q-80,f-webp" alt="Savanna House pool" loading="lazy">
+        </div>
+        <div class="about-img about-img-2">
+          <img src="https://ik.imagekit.io/lrj2sofys/alev-takil-lw3Lqe2K7xc-unsplash.jpg?tr=w-900,q-80,f-webp" alt="Savanna House garden" loading="lazy">
+        </div>
+        <div class="about-img about-img-3">
+          <img src="https://ik.imagekit.io/lrj2sofys/niraj-golhar-u_nhLLPdUF0-unsplash.jpg?tr=w-900,q-80,f-webp" alt="Savanna House detail" loading="lazy">
+        </div>
+        <div class="about-accent"></div>
+      </div>
+      <div class="about-text reveal">
+        <span class="section-eyebrow">Raising Comfort to the Highest Level</span>
+        <h2 class="section-title">Welcome to<br>Savanna House</h2>
+        <div class="divider"></div>
+        <p>Nestled in the vibrant energy of Nairobi, Savanna House is the ideal choice for travellers seeking a harmonious blend of comfort, authenticity, and genuine Kenyan hospitality.</p>
+        <p>From our sun-drenched gardens to our thoughtfully designed rooms, every corner of Savanna House is crafted to make you feel at home — whether you're exploring the city's culture, venturing on safari, or simply unwinding in peaceful surroundings.</p>
+        <a href="#rooms" class="btn-outline">Explore Rooms</a>
+        <div class="about-stats">
+          <div>
+            <div class="stat-num">12+</div>
+            <div class="stat-label">Years Hosting</div>
+          </div>
+          <div>
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Happy Guests</div>
+          </div>
+          <div>
+            <div class="stat-num">4.9★</div>
+            <div class="stat-label">Average Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AMENITIES ── -->
+<section id="amenities">
+  <div class="amenities-bg">
+    <div class="amenities-visual">
+      <img src="https://ik.imagekit.io/lrj2sofys/frugal-flyer-dtMCB12HAi8-unsplash.jpg?tr=w-900,q-80,f-webp" alt="Savanna House pool" loading="lazy">
+      <div class="pool-graphic"></div>
+    </div>
+    <div class="amenities-card reveal">
+      <span class="section-eyebrow">What We Offer</span>
+      <h2 class="section-title">Our Amenities</h2>
+      <div class="divider"></div>
+      <p>Savanna House is designed around your comfort. From the moment you arrive, every amenity is in place to ensure a seamless, memorable stay.</p>
+      <div class="amenities-grid">
+        <div class="amenity-item">
+          <span class="amenity-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></span> Free WiFi
+        </div>
+        <div class="amenity-item">
+          <span class="amenity-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M7 12c0-2.8 1.6-5 4-6"/><path d="M17 12c0-2.8-1.6-5-4-6"/><path d="M2 17c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2"/><path d="M4 17v-5"/><path d="M20 17v-5"/></svg></span> Swimming Pool
+        </div>
+        <div class="amenity-item">
+          <span class="amenity-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span> Breakfast Included
+        </div>
+        <div class="amenity-item">
+          <span class="amenity-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span> Free Parking
+        </div>
+        <div class="amenity-item">
+          <span class="amenity-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/><path d="M2 8h16v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span> 24/7 Room Service
+        </div>
+        <div class="amenity-item">
+          <span class="amenity-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></span> Airport Pickup
+        </div>
+        <div class="amenity-item">
+          <span class="amenity-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span> Spa & Wellness
+        </div>
+        <div class="amenity-item">
+          <span class="amenity-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M8 11h6"/><path d="M11 8v6"/></svg></span> Safari Bookings
+        </div>
+        <div class="amenity-item">
+          <span class="amenity-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span> 24hr Security
+        </div>
+        <div class="amenity-item">
+          <span class="amenity-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 0v20M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span> Garden Terrace
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ROOMS ── -->
+<section id="rooms">
+  <div class="container">
+    <div class="rooms-header reveal">
+      <div>
+        <span class="section-eyebrow">Rest & Recharge</span>
+        <h2 class="section-title">Rooms & Suites</h2>
+      </div>
+      <a href="#contact" class="btn-outline">View All</a>
+    </div>
+    <div class="rooms-grid">
+      <div class="room-card reveal">
+        <div class="room-img room-img-1">
+          <img src="https://ik.imagekit.io/lrj2sofys/olexandr-ignatov-w72a24brINI-unsplash.jpg?tr=w-600,h-400,q-80,f-webp" alt="Garden Standard Room" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;animation:none;background:none;">
+          <div class="room-badge">Popular</div>
+        </div>
+        <div class="room-body">
+          <h3 class="room-name">Garden Standard</h3>
+          <div class="room-features">
+            <span class="room-feat">👤 2 Guests</span>
+            <span class="room-feat">📐 24 m²</span>
+            <span class="room-feat">🌿 Garden View</span>
+          </div>
+          <p class="room-desc">A warm, light-filled room with a view of our lush garden, perfect for solo travellers or couples seeking a comfortable and affordable retreat.</p>
+          <div class="room-footer">
+            <div class="room-price">
+              <div class="amount">KSH 6,500</div>
+              <div class="per">/ per night</div>
+            </div>
+            <button class="room-btn">View Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="room-card reveal">
+        <div class="room-img room-img-2">
+          <img src="https://ik.imagekit.io/lrj2sofys/vojtech-bruzek-Yrxr3bsPdS0-unsplash.jpg?tr=w-600,h-400,q-80,f-webp" alt="Deluxe Pool Suite" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;animation:none;background:none;">
+          <div class="room-badge">Best Value</div>
+        </div>
+        <div class="room-body">
+          <h3 class="room-name">Deluxe Pool Suite</h3>
+          <div class="room-features">
+            <span class="room-feat">👥 3 Guests</span>
+            <span class="room-feat">📐 38 m²</span>
+            <span class="room-feat">🏊 Pool Access</span>
+          </div>
+          <p class="room-desc">Elegant and spacious, with direct access to our swimming pool. Designed for guests who value both style and the refreshing embrace of open sky.</p>
+          <div class="room-footer">
+            <div class="room-price">
+              <div class="amount">KSH 11,000</div>
+              <div class="per">/ per night</div>
+            </div>
+            <button class="room-btn">View Details</button>
+          </div>
+        </div>
+      </div>
+      <div class="room-card reveal">
+        <div class="room-img room-img-3">
+          <img src="https://ik.imagekit.io/lrj2sofys/antonio-araujo-7YBhszMWnkA-unsplash.jpg?tr=w-600,h-400,q-80,f-webp" alt="Savanna Presidential Suite" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;animation:none;background:none;">
+          <div class="room-badge">Luxury</div>
+        </div>
+        <div class="room-body">
+          <h3 class="room-name">Savanna Presidential</h3>
+          <div class="room-features">
+            <span class="room-feat">👥 4 Guests</span>
+            <span class="room-feat">📐 55 m²</span>
+            <span class="room-feat">🌄 City View</span>
+          </div>
+          <p class="room-desc">Our finest offering — a full suite with a private sitting area, premium furnishings, and panoramic views of Nairobi's skyline at sunrise and sunset.</p>
+          <div class="room-footer">
+            <div class="room-price">
+              <div class="amount">KSH 18,500</div>
+              <div class="per">/ per night</div>
+            </div>
+            <button class="room-btn">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testimonials-inner">
+      <div class="reveal">
+        <span class="section-eyebrow">Guest Voices</span>
+        <h2 class="section-title">What Our<br>Guests Say</h2>
+        <div class="divider"></div>
+        <p>Every stay at Savanna House leaves a lasting impression. Here's what our guests from around the world have shared about their experience with us.</p>
+      </div>
+      <div class="testimonials-cards">
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"We stayed here as a family and couldn't have been happier. The rooms are modern, the breakfast was exceptional, and the staff made us feel genuinely welcomed. We will absolutely return."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AM</div>
+            <div>
+              <div class="testi-name">Amara Mensah</div>
+              <div class="testi-loc">Accra, Ghana</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The location is perfect — close to everything yet peaceful. The pool is beautiful, the food is incredible, and the safari booking service saved us so much stress. Truly a gem in Nairobi."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">JK</div>
+            <div>
+              <div class="testi-name">James & Kate Palmer</div>
+              <div class="testi-loc">London, UK</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Savanna House exceeded every expectation. The Presidential Suite was beyond luxurious. Waking up to Nairobi's skyline every morning was something I'll never forget."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">SN</div>
+            <div>
+              <div class="testi-name">Selin Nakamura</div>
+              <div class="testi-loc">Tokyo, Japan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALLERY ── -->
+<section id="gallery">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:0;">
+      <span class="section-eyebrow">Explore the Space</span>
+      <h2 class="section-title">A Glimpse of<br>Savanna House</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item g1 reveal">
+        <img src="https://ik.imagekit.io/lrj2sofys/frugal-flyer-dtMCB12HAi8-unsplash.jpg?tr=w-900,q-80,f-webp" alt="Savanna House pool area" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="gallery-overlay">🔍</div>
+      </div>
+      <div class="gallery-item g2 reveal">
+        <img src="https://ik.imagekit.io/lrj2sofys/edwin-petrus-Ri2dPW_kP0k-unsplash.jpg?tr=w-600,q-80,f-webp" alt="Savanna House interior" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="gallery-overlay">🔍</div>
+      </div>
+      <div class="gallery-item g3 reveal">
+        <img src="https://ik.imagekit.io/lrj2sofys/alev-takil-lw3Lqe2K7xc-unsplash.jpg?tr=w-900,q-80,f-webp" alt="Savanna House garden" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="gallery-overlay">🔍</div>
+      </div>
+      <div class="gallery-item g4 reveal">
+        <img src="https://ik.imagekit.io/lrj2sofys/jackson-sears-q9ERG3pCLwE-unsplash.jpg?tr=w-600,q-80,f-webp" alt="Savanna House room" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="gallery-overlay">🔍</div>
+      </div>
+      <div class="gallery-item g5 reveal">
+        <img src="https://ik.imagekit.io/lrj2sofys/niraj-golhar-u_nhLLPdUF0-unsplash.jpg?tr=w-900,q-80,f-webp" alt="Savanna House dining" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="gallery-overlay">🔍</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DINING ── -->
+<section id="dining">
+  <div class="dining-grid">
+    <div class="dining-visual">
+      <img src="https://ik.imagekit.io/lrj2sofys/jonas-allert-ZApUkahPK7c-unsplash.jpg?tr=w-900,q-80,f-webp" alt="Savanna House dining" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+      <div class="candle-effect"></div>
+    </div>
+    <div class="dining-content reveal">
+      <span class="section-eyebrow">Farm to Table</span>
+      <h2 class="section-title">Our Dining</h2>
+      <div class="divider"></div>
+      <p>Start your morning with a full buffet breakfast on our garden terrace, and end your day with cuisine that blends Kenya's rich culinary heritage with international flavours — all prepared by our passionate in-house chefs.</p>
+      <div class="menu-accordion">
+        <div class="menu-item">
+          <div class="menu-toggle active" onclick="toggleMenu(this)">
+            Kenyan Kitchen <span class="menu-arrow">▾</span>
+          </div>
+          <div class="menu-body open">
+            <p>Authentic nyama choma, ugali, sukuma wiki, and coastal Swahili dishes prepared with fresh, locally-sourced ingredients. A true taste of home.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-toggle" onclick="toggleMenu(this)">
+            Continental Breakfast <span class="menu-arrow">▾</span>
+          </div>
+          <div class="menu-body">
+            <p>A generous spread of pastries, fresh tropical fruit, eggs cooked to order, premium coffees, and fresh-squeezed juices — included in every room rate.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-toggle" onclick="toggleMenu(this)">
+            International Cuisine <span class="menu-arrow">▾</span>
+          </div>
+          <div class="menu-body">
+            <p>From Italian pasta to Indian curry and Asian stir-fry, our diverse evening menu caters to every palate with expertly prepared dishes and fine wine pairings.</p>
+          </div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-toggle" onclick="toggleMenu(this)">
+            Poolside Snacks & Cocktails <span class="menu-arrow">▾</span>
+          </div>
+          <div class="menu-body">
+            <p>Refresh by the pool with grilled skewers, artisan sandwiches, tropical smoothies, and our signature Savanna Sundowner cocktail — the perfect end to an African afternoon.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom:3.5rem;">
+      <span class="section-eyebrow">Find Us</span>
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="divider" style="margin-left:auto; margin-right:auto;"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-detail">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">14 Acacia Avenue, Westlands<br>Nairobi, Kenya</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-value"><a href="tel:+254700000000">+254 700 000 000</a></div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:hello@savannahouse.co.ke">hello@savannahouse.co.ke</a></div>
+          </div>
+        </div>
+        <div class="contact-detail" style="border-bottom:none;">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-label">Check-in / Check-out</div>
+            <div class="contact-value">Check-in: 2:00 PM &nbsp;|&nbsp; Check-out: 11:00 AM</div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;">
+          <div class="footer-social">
+            <a class="social-btn" href="#" title="Instagram">📷</a>
+            <a class="social-btn" href="#" title="Facebook">f</a>
+            <a class="social-btn" href="#" title="Twitter/X">𝕏</a>
+            <a class="social-btn" href="#" title="WhatsApp">💬</a>
+          </div>
+        </div>
+      </div>
+      <div class="map-embed reveal">
+        <div class="map-label">📍 Savanna House, Westlands</div>
+        <div class="map-pin">
+          <div class="map-pin-head"></div>
+          <div class="map-pin-line"></div>
+        </div>
+        🗺️
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">Savanna<span style="color:var(--gold-light)">House</span></a>
+        <p>Your peaceful retreat in the heart of Nairobi — where Kenyan warmth meets modern comfort. We look forward to welcoming you.</p>
+        <div class="footer-social" style="margin-top:1.5rem;">
+          <a class="social-btn" href="#">📷</a>
+          <a class="social-btn" href="#">f</a>
+          <a class="social-btn" href="#">𝕏</a>
+          <a class="social-btn" href="#">💬</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#rooms">Rooms & Suites</a></li>
+          <li><a href="#amenities">Amenities</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#dining">Dining</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Airport Transfers</a></li>
+          <li><a href="#">Safari Bookings</a></li>
+          <li><a href="#">Spa & Wellness</a></li>
+          <li><a href="#">Event Hosting</a></li>
+          <li><a href="#">Business Stays</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Cancellation</a></li>
+          <li><a href="#">Terms of Stay</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Savanna House. All rights reserved.</span>
+      <span>Made with ♥ in Nairobi, Kenya</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Mark images loaded (removes shimmer skeleton)
+document.querySelectorAll('img').forEach(img => {
+  if (img.complete && img.naturalWidth > 0) {
+    img.classList.add('loaded');
+  } else {
+    img.addEventListener('load', () => img.classList.add('loaded'));
+    img.addEventListener('error', () => img.classList.add('loaded')); // don't shimmer forever on error
+  }
+});
+
+// ── Nav scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// ── Menu accordion
+function toggleMenu(toggle) {
+  const body = toggle.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.menu-body').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.menu-toggle').forEach(t => t.classList.remove('active'));
+  if (!isOpen) { body.classList.add('open'); toggle.classList.add('active'); }
+}
+
+// ── Mobile menu
+function openMobileMenu() {
+  document.getElementById('mobileMenu').classList.add('open');
+  document.getElementById('mobileOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('mobileOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function scrollToBooking() {
+  document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ── Smooth anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+// ── Booking search button
+document.querySelector('.booking-search').addEventListener('click', () => {
+  const checkin = document.querySelector('.booking-bar input[type="date"]:first-of-type').value;
+  const checkout = document.querySelectorAll('.booking-bar input[type="date"]')[1].value;
+  if (!checkin || !checkout) {
+    alert('Please select your check-in and check-out dates.');
+    return;
+  }
+  document.getElementById('rooms').scrollIntoView({ behavior: 'smooth' });
+});
+</script>
+</body>
+</html>
